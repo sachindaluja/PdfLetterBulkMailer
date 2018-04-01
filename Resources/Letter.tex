@@ -1,0 +1,109 @@
+\documentclass[11pt,letterpaper]{letter}
+
+\usepackage{graphicx} % For including pictures
+\usepackage{microtype}
+\usepackage{gfsdidot} % GFS Didot font: http://www.tug.dk/FontCatalogue/gfsdidot/
+\usepackage[T1]{fontenc} % For accented characters
+
+% Horizontal rule with thickness specification
+\makeatletter
+\def\vhrulefill#1{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
+\makeatother
+
+\textwidth 6.75in
+\textheight 9.25in
+\oddsidemargin -.25in
+\evensidemargin -.25in
+\topmargin -1in
+\longindentation 0.50\textwidth
+\parindent 0.4in
+
+\def\Who{John Doe} % Name
+\def\What{My Awesome Title} % Your title
+% \def\Where{Department of Awesomeness}
+\def\Address{1234 Awesomeness Lane}
+\def\CityZip{Atlantis, AW 12345}
+% \def\Email{E-mail: john.doe@my-awesome-company.org}
+\def\TEL{Phone: (123) 456-7890}
+\def\URL{Internet: www.my-awesome-company.org}
+\def\ToNames{$$NAME$$}
+\def\ToAddressLine1{$$ADDRESS_LINE1$$}
+\def\ToTown{$$TOWN$$}
+\def\ToStateAndZip{$$STATE_AND_ZIP$$}
+\def\ExampleNumber{$$EXAMPLE_NUMBER$$ }
+
+\address{
+\includegraphics[width=1in]{Logo.jpg}
+\hspace{5.1in}
+\vskip -1.07in~\\ % Position of text relative to logo
+\hspace{1.5in}Awesome Company Inc. \hfill \normalsize
+~\\[-0.11in] % Reduce whitespace above horizontal rule
+\hspace{1.5in}\vhrulefill{1pt} \\ % Horizontal rule
+\hspace{\fill}\parbox[t]{3.5in}{ % Box for details underneath the horizontal rule on the right
+\footnotesize % Use smaller font size for the details
+\Address\\
+\CityZip\\
+\TEL\\
+\URL
+}
+\hspace{-1.4in} % Horizontal position of this block
+}
+
+\def\opening#1{\thispagestyle{empty}
+{\centering\fromaddress \vspace{0.6in} \\
+\hspace{5.1in}\today\hspace*{\fill}\par}
+{\raggedright \toname \\ \toaddress \par}
+\vspace{0.4in}
+\noindent #1 % Print opening line
+}
+
+\signature{\includegraphics{Signature.jpg}\\\Who\\\What}
+
+\long\def\closing#1{
+\vspace{0.1in} % Whitespace after letter content and before signature
+\noindent % Stop paragraph indentation
+
+{\raggedright
+#1 % Print signature text
+\vskip 0.2in % Whitespace between the signature and name
+\fromsig}}
+
+\begin{document}
+
+\begin{letter}
+{\ToNames\\
+\ToAddressLine1\\
+\ToTown, \ToStateAndZip\\
+}
+
+\opening{Dear \ToNames,}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+culpa qui officia deserunt mollit anim id est laborum. The awesome number is
+\textbf{\$\ExampleNumber}.
+
+\begin{center}
+\includegraphics[scale=0.75]{Picture.jpg}
+\par\end{center}
+
+Suspendisse facilisis iaculis lobortis. Suspendisse id turpis vestibulum, 
+molestie lectus vitae, placerat dolor. In sit amet enim varius tellus tempus 
+iaculis sit amet sit amet nibh. Sed ante ipsum, porta et sem sed, consequat 
+tincidunt est. Nam mollis dolor non ipsum eleifend hendrerit. Nullam in suscipit 
+ex, quis varius turpis.
+
+\closing{Sincerely,}
+
+\vspace{.5in}\hrule
+\begin{center}
+{\footnotesize{}Awesome Company Inc.}\\
+{\footnotesize{}Awesome slogan}\\
+{\footnotesize{}More awesomeness information}\\
+\par\end{center}{\footnotesize \par}
+
+\end{letter}
+\end{document}
